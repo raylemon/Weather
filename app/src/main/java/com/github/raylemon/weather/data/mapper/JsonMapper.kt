@@ -10,7 +10,7 @@ import com.github.raylemon.weather.data.domain.Temperatures as DomainTemperature
 /**
  * Created by big04 on 06-03-16.
  */
-class JsonMapper {
+object JsonMapper {
     fun convertToDomain(result: ForecastResult) = with(result) {
         ForecastList(city.name, city.country, convertListToDomain(list))
     }
@@ -25,5 +25,5 @@ class JsonMapper {
         DomainTemperatures(day, min, max, night, eve, morn)
     }
 
-    private fun fullUrl(icon: String) = "http://openweathermap.org/img/w/$icon"
+    private fun fullUrl(icon: String) = "http://openweathermap.org/img/w/$icon.png"
 }
