@@ -5,5 +5,5 @@ package com.github.raylemon.weather.data.domain
  */
 data class ForecastList(val city: String, val country: String, val weather: List<Forecast>)
 
-data class Forecast(val id: Int, val desc: String, val icon: String, val temp: Temperatures)
+data class Forecast(val dt: Long, val desc: String, val icon: String, val temp: Temperatures)
 data class Temperatures(val day: Float, val min: Float, val max: Float, val night: Float, val eve: Float, val morn: Float)
