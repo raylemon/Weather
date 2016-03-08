@@ -14,15 +14,15 @@ import kotlinx.android.synthetic.main.item_list_content.view.*
 /**
  * Created by big04 on 06-03-16.
  */
-class ForecastAdapter(val items: ForecastList) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
+class ForecastAdapter(val items: ForecastList, val click: (Forecast) -> Unit) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(R.layout.item_list_content, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(R.layout.item_list_content, false), click)
 
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bindForecast(items[position])
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View, val click: (Forecast) -> Unit) : RecyclerView.ViewHolder(view) {
         fun bindForecast(forecast: Forecast) = with(forecast) {
             with(itemView) {
                 vDate.text = dt.toDate()
@@ -30,6 +30,7 @@ class ForecastAdapter(val items: ForecastList) : RecyclerView.Adapter<ForecastAd
                 vMaxTemp.text = temp.max.toString()
                 vMinTemp.text = temp.min.toString()
                 vIcon.load(icon)
+                setOnClickListener { click(forecast) }
             }
         }
     }

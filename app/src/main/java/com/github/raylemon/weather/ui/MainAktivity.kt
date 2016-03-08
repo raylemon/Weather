@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.JsonServer
+import com.github.raylemon.weather.ext.toDate
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import kotlinx.android.synthetic.main.forecast_list.*
 import org.jetbrains.anko.async
+import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 /**
@@ -27,7 +29,9 @@ class MainAktivity : AppCompatActivity() {
         async() {
             val items = JsonServer().getForecast(cnt, city)
             uiThread {
-                vForecastList.adapter = ForecastAdapter(items)
+                vForecastList.adapter = ForecastAdapter(items) {
+                    toast(it.dt.toDate())
+                }
             }
         }
     }
