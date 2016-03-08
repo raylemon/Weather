@@ -1,12 +1,14 @@
 package com.github.raylemon.weather.ui
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.JsonServer
 import com.github.raylemon.weather.ext.toDate
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import kotlinx.android.synthetic.main.forecast_list.*
+import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
@@ -16,13 +18,15 @@ import org.jetbrains.anko.uiThread
  */
 class MainAktivity : AppCompatActivity() {
 
+    private val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+    private val cnt = prefs.getInt(PreferenceDialog.COUNT_KEY, 16)
+    private val city = prefs.getString(PreferenceDialog.CITY_KEY, "Wavre")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        fab.setOnClickListener { showPreferences() }
     }
-
-    private val cnt = 16
-    private val city = "Wavre"
 
     override fun onResume() {
         super.onResume()
@@ -32,7 +36,12 @@ class MainAktivity : AppCompatActivity() {
                 vForecastList.adapter = ForecastAdapter(items) {
                     toast(it.dt.toDate())
                 }
+                title = "${items.city},${items.country}"
             }
         }
+    }
+
+    private fun showPreferences() {
+        PreferenceDialog().show(supportFragmentManager, "preferences")
     }
 }
