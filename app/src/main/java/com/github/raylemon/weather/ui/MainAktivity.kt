@@ -1,5 +1,6 @@
 package com.github.raylemon.weather.ui
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
@@ -18,9 +19,9 @@ import org.jetbrains.anko.uiThread
  */
 class MainAktivity : AppCompatActivity() {
 
-    private val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-    private val cnt = prefs.getInt(PreferenceDialog.COUNT_KEY, 16)
-    private val city = prefs.getString(PreferenceDialog.CITY_KEY, "Wavre")
+    private val prefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
+    private val cnt: Int by lazy { prefs.getInt(PreferenceDialog.COUNT_KEY, 16) }
+    private val city: String by lazy { prefs.getString(PreferenceDialog.CITY_KEY, "Wavre") }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
