@@ -37,7 +37,7 @@ class MainAktivity : AppCompatActivity() {
                 vForecastList.adapter = ForecastAdapter(items) {
                     toast(it.dt.toDate())
                 }
-                title = "${items.city},${items.country}"
+                vCollapseToolbar.title = "${items.city},${items.country}"
             }
         }
     }
