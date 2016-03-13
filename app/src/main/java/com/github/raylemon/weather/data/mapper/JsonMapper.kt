@@ -18,7 +18,7 @@ object JsonMapper {
     private fun convertListToDomain(list: List<Forecast>) = list.map { convertItemToDomain(it) }
 
     private fun convertItemToDomain(item: Forecast) = with(item) {
-        DomainForecast(dt = dt, desc = weather.first().description, icon = fullUrl(weather.first().icon), temp = convertTempToDomain(temp))
+        DomainForecast(dt = dt, desc = weather.first().description, icon = fullUrl(weather.first().icon), temp = convertTempToDomain(temp), pressure = pressure, humidity = humidity)
     }
 
     private fun convertTempToDomain(temp: Temperatures) = with(temp) {

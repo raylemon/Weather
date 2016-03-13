@@ -23,6 +23,10 @@ class DetailAktivity : AppCompatActivity(), ToolbarManager {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //TODO add forecast
-        //TODO fragment
+        if (savedInstanceState == null ) fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, DetailFragment())
+                .commit()
     }
 }
+
