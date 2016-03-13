@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.domain.Forecast
 import com.github.raylemon.weather.ext.load
 import com.github.raylemon.weather.ext.toDate
@@ -22,7 +21,7 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //TODO How to recover forecast ?
+        if (arguments != null && arguments.containsKey(KEY)) forecast = arguments.getParcelable(KEY)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?): View
@@ -32,8 +31,8 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(forecast) {
             vDate.text = dt.toDate()
-            vPressure.text = pressure.toString()
-            vHumidity.text = humidity.toString()
+            vPressure.text = pressure.toString() + "hPa"
+            vHumidity.text = humidity.toString() + "%"
             vIcon.load(icon)
             vDescription.text = desc
             with(temp) {

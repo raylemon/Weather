@@ -6,16 +6,14 @@ import android.preference.PreferenceManager
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.JsonServer
-import com.github.raylemon.weather.ext.toDate
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import com.github.raylemon.weather.ui.toolbar.ToolbarManager
 import kotlinx.android.synthetic.main.forecast_list.*
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.find
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.uiThread
 
 /**
@@ -42,7 +40,7 @@ class MainAktivity : AppCompatActivity(), ToolbarManager {
             val items = JsonServer().getForecast(cnt, city)
             uiThread {
                 vForecastList.adapter = ForecastAdapter(items) {
-                    toast(it.dt.toDate())
+                    startActivity<DetailAktivity>(DetailFragment.KEY to it, DetailFragment.CITY to city)
                 }
                 toolbarTitle = "${items.city},${items.country}"
             }

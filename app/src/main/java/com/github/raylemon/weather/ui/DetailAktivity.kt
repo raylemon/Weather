@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import com.github.raylemon.weather.R
+import com.github.raylemon.weather.data.domain.Forecast
 import com.github.raylemon.weather.ui.toolbar.ToolbarManager
 import org.jetbrains.anko.find
 
@@ -18,14 +18,16 @@ class DetailAktivity : AppCompatActivity(), ToolbarManager {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        toolbarTitle = "Any Title" //TODO change title
+        toolbarTitle = intent.getStringExtra(DetailFragment.CITY)
         enableHomeAsUp { onBackPressed() }
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //TODO add forecast
+        val forecast = intent.getParcelableExtra<Forecast>(DetailFragment.KEY)
         if (savedInstanceState == null ) fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, DetailFragment())
+                .replace(R.id.container, DetailFragment().apply {
+                    arguments = Bundle().apply { putParcelable(DetailFragment.KEY, forecast) }
+                })
                 .commit()
     }
 }
