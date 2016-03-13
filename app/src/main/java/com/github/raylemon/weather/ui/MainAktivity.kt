@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.JsonServer
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import com.github.raylemon.weather.ui.toolbar.ToolbarManager

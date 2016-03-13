@@ -2,9 +2,11 @@ package com.github.raylemon.weather.ui
 
 import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.domain.Forecast
 import com.github.raylemon.weather.ext.load
 import com.github.raylemon.weather.ext.toDate
@@ -36,20 +38,32 @@ class DetailFragment : Fragment() {
             vIcon.load(icon)
             vDescription.text = desc
             with(temp) {
-                vDay.text = "${day.toString()}°C" ; vDay.setBackgroundColor(defineColor(day))
+                vDay.run {
+                    text = "${day.toString()}°C"
+                    setBackgroundColor(defineColor(day))
+                }
                 vMinTemp.text = "${min.toString()}°C"
                 vMaxTemp.text = "${max.toString()}°C"
-                vNight.text = "${night.toString()}°C" ; vNight.setBackgroundColor(defineColor(night))
-                vMorn.text = "${morn.toString()}°C" ; vMorn.setBackgroundColor(defineColor(morn))
-                vEve.text = "${eve.toString()}°C" ;vEve.setBackgroundColor(defineColor(eve))
+                vNight.run {
+                    text = "${night.toString()}°C"
+                    setBackgroundColor(defineColor(night))
+                }
+                vMorn.run {
+                    text = "${morn.toString()}°C"
+                    setBackgroundColor(defineColor(morn))
+                }
+                vEve.run {
+                    text = "${eve.toString()}°C"
+                    setBackgroundColor(defineColor(eve))
+                }
             }
         }
     }
 
-    private fun defineColor(t: Float): Int = when {
-        t < 10f -> R.color.frost
-        t in 10f..20f -> R.color.mid_frost
-        t in 20f..30f -> R.color.mid_warm
-        else -> R.color.warm
+    private fun defineColor(t: Float) = when {
+        t < 10f -> ContextCompat.getColor(activity, R.color.frost)
+        t in 10f..20f -> ContextCompat.getColor(activity, R.color.mid_frost)
+        t in 20f..30f -> ContextCompat.getColor(activity, R.color.mid_warm)
+        else -> ContextCompat.getColor(activity, R.color.warm)
     }
 }
