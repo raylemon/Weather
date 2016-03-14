@@ -7,6 +7,7 @@ import com.github.raylemon.weather.data.JsonServer
 import com.github.raylemon.weather.ext.toDate
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import kotlinx.android.synthetic.main.forecast_list.*
+import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
@@ -19,6 +20,9 @@ class MainAktivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        fab.setOnClickListener {
+            PreferencesDialog().show(supportFragmentManager, "prefs")
+        }
     }
 
     private val cnt = 16
