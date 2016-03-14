@@ -39,6 +39,6 @@
     <NumberPicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/vDatePicker"
+            android:id="@+id/vDayPicker"
             android:layout_gravity="center_horizontal"/>
 </LinearLayout>
