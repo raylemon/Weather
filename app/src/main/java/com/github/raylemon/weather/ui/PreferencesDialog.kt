@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatDialogFragment
 import android.view.LayoutInflater
+import android.widget.EditText
 import android.widget.NumberPicker
 import com.github.raylemon.weather.R
 import org.jetbrains.anko.AlertDialogBuilder
@@ -22,10 +23,11 @@ class PreferencesDialog() : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val view = LayoutInflater.from(activity).inflate(R.layout.pref_dialog, null)
         val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+        view.find<EditText>(R.id.vPrefCity).setText(prefs.getString(CITY_KEY,""))
         val pick = view.find<NumberPicker>(R.id.vDayPicker).apply {
             minValue = 1
             maxValue = 16
-            value = 7
+            value = prefs.getInt(CNT_KEY, 7)
         }
         return AlertDialogBuilder(activity).apply {
             title("Preferences")
