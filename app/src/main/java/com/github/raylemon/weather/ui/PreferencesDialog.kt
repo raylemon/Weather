@@ -2,6 +2,7 @@ package com.github.raylemon.weather.ui
 
 import android.app.Dialog
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatDialogFragment
 import android.view.LayoutInflater
 import android.widget.NumberPicker
@@ -20,7 +21,7 @@ class PreferencesDialog() : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val view = LayoutInflater.from(activity).inflate(R.layout.pref_dialog, null)
-        //TODO
+        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
         val pick = view.find<NumberPicker>(R.id.vDayPicker).apply {
             minValue = 1
             maxValue = 16
