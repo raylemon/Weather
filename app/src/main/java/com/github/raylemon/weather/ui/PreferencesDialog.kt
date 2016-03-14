@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.NumberPicker
 import com.github.raylemon.weather.R
+import kotlinx.android.synthetic.main.pref_dialog.*
 import org.jetbrains.anko.AlertDialogBuilder
 import org.jetbrains.anko.find
 
@@ -34,7 +35,10 @@ class PreferencesDialog() : AppCompatDialogFragment() {
             customView(view)
             positiveButton("Set !")
             {
-                //TODO
+                with (prefs.edit()){
+                    putString(CITY_KEY, vPrefCity.text.toString())
+                    putInt(CNT_KEY, vDayPicker.value)
+                }
             }
             negativeButton("Cancel") { cancel() }
         }.builder.create()
