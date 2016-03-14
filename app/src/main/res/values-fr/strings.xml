@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Météo</string>
+    <string name="city">ville</string>
+    <string name="day">jour</string>
+    <string name="detail_title">Prévisions pour %1$s</string>
+    <string name="eve">soir</string>
+    <string name="humidity">humidité</string>
+    <string name="morn">matin</string>
+    <string name="night">nuit</string>
+    <string name="pref_cancel">Annuler</string>
+    <string name="pref_city_to_show">Ville à afficher</string>
+    <string name="pref_days_to_show">Jours à afficher</string>
+    <string name="pref_done">Terminé</string>
+    <string name="pref_title">Préférences</string>
+    <string name="pref_toast">Préférences sauvegardées ! Veuillez redémarrer l\'application</string>
+    <string name="pressure">pression</string>
+</resources>
