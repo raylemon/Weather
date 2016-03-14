@@ -1,6 +1,7 @@
 package com.github.raylemon.weather.ui
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import com.github.raylemon.weather.R
 import com.github.raylemon.weather.data.JsonServer
@@ -17,6 +18,10 @@ import org.jetbrains.anko.uiThread
  */
 class MainAktivity : AppCompatActivity() {
 
+    private val prefs by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
+    private val city by lazy { prefs.getString(PreferencesDialog.CITY_KEY, "Brussels") }
+    private val cnt by lazy { prefs.getInt(PreferencesDialog.CNT_KEY, 7) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -24,9 +29,6 @@ class MainAktivity : AppCompatActivity() {
             PreferencesDialog().show(supportFragmentManager, "prefs")
         }
     }
-
-    private val cnt = 16
-    private val city = "Wavre"
 
     override fun onResume() {
         super.onResume()
