@@ -33,16 +33,16 @@ class PreferenceDialog : AppCompatDialogFragment() {
 
         return AlertDialogBuilder(context).apply {
             customView(view)
-            title("Preferences")
-            positiveButton("Done") {
+            title(resources.getString(R.string.pref_title))
+            positiveButton(resources.getString(R.string.pref_done)) {
                 with(prefs.edit()) {
                     putString(CITY_KEY, vCity.text.toString())
                     putInt(COUNT_KEY, vCntPick.value)
                     commit()
-                    activity.toast("Settings saved ! Please restart app !")
+                    activity.toast(resources.getString(R.string.pref_toast))
                 }
             }
-            negativeButton("Cancel") { cancel() }
+            negativeButton(resources.getString(R.string.pref_cancel)) { cancel() }
         }.builder.create()
     }
 }

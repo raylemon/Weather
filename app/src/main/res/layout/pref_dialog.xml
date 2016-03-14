@@ -11,7 +11,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="City to show"
+        android:text="@string/pref_city_to_show"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:hint="city" />
+        android:hint="@string/city" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="Days to show"
+        android:text="@string/pref_days_to_show"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <NumberPicker

@@ -19,7 +19,7 @@ class DetailAktivity : AppCompatActivity(), ToolbarManager {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        toolbarTitle = intent.getStringExtra(DetailFragment.CITY)
+        toolbarTitle = resources.getString(R.string.detail_title, intent.getStringExtra(DetailFragment.CITY))
         enableHomeAsUp { onBackPressed() }
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

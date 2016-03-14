@@ -83,7 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
-                android:text="pressure"
+                android:text="@string/pressure"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
             <TextView
@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
-                android:text="humidity"
+                android:text="@string/humidity"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
             <TextView
@@ -133,7 +133,7 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:gravity="center_horizontal"
-            android:text="morn"
+            android:text="@string/morn"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <TextView
@@ -142,7 +142,7 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:gravity="center_horizontal"
-            android:text="day"
+            android:text="@string/day"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <TextView
@@ -151,7 +151,7 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:gravity="center_horizontal"
-            android:text="eve"
+            android:text="@string/eve"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <TextView
@@ -160,7 +160,7 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:gravity="center_horizontal"
-            android:text="night"
+            android:text="@string/night"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <TextView

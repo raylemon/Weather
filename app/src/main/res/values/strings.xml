@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="detail_title">Forecast for %1$s</string>
+    <string name="pref_title">Preferences</string>
+    <string name="pref_done">Done</string>
+    <string name="pref_cancel">Cancel</string>
+    <string name="pref_toast">Settings saved ! Please restart app !</string>
+    <string name="pressure">pressure</string>
+    <string name="humidity">humidity</string>
+    <string name="morn">morn</string>
+    <string name="day">day</string>
+    <string name="eve">eve</string>
+    <string name="night">night</string>
+    <string name="pref_city_to_show">City to show</string>
+    <string name="city">city</string>
+    <string name="pref_days_to_show">Days to show</string>
 </resources>
