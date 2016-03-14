@@ -8,5 +8,5 @@ data class ForecastList(val city: String, val country: String, val weather: List
     val size = weather.size
 }
 
-data class Forecast(val dt: Long, val desc: String, val icon: String, val temp: Temperatures)
+data class Forecast(val dt: Long, val desc: String, val icon: String, val temp: Temperatures, val pressure: Float, val humidity: Int)
 data class Temperatures(val day: Float, val min: Float, val max: Float, val night: Float, val eve: Float, val morn: Float)
