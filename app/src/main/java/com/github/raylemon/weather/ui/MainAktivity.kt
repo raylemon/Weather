@@ -41,7 +41,21 @@ class MainAktivity : AppCompatActivity(), ToolbarManager {
             val items = JsonServer().getForecast(cnt, city)
             uiThread {
                 vForecastList.adapter = ForecastAdapter(items) {
-                    startActivity<DetailAktivity>(DetailFragment.KEY to it, DetailFragment.CITY to city)
+                    val twoPane = resources.getBoolean(R.bool.twoPane)
+                    if (twoPane) {
+                        fragmentManager
+                                .beginTransaction()
+                                .setCustomAnimations(R.animator.card_flip_right_in, R.animator.card_flip_right_out, R.animator.card_flip_left_in, R.animator.card_flip_left_out)
+                                .replace(R.id.container, DetailFragment().apply {
+                                    arguments = Bundle().apply {
+                                        putParcelable(DetailFragment.KEY, it)
+                                        putString(DetailFragment.CITY, city)
+                                    }
+                                })
+                                .addToBackStack(null)
+                                .commit()
+
+                    } else startActivity<DetailAktivity>(DetailFragment.KEY to it, DetailFragment.CITY to city)
                 }
                 toolbarTitle = "${items.city},${items.country}"
             }
