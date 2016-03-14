@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="City to show"
+            android:id="@+id/"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vPrefCity"
+            android:layout_gravity="center_horizontal"
+            android:hint="Type your city here"
+            android:paddingTop="10dp"/>
+
+    <requestFocus/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Day to show"
+            android:theme="@style/Base.TextAppearance.AppCompat.Headline"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+    <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vDatePicker"
+            android:layout_gravity="center_horizontal"/>
+</LinearLayout>
