@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="City to show"
-            android:id="@+id/"
+            android:id="@+id/prefCityLabel"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:layout_marginLeft="16dp"
@@ -28,7 +28,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/"
+            android:id="@+id/prefDayLabel"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:text="Day to show"
