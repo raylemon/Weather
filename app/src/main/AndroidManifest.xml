@@ -11,6 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="CPORM_CONFIG"
+            android:value="com.github.raylemon.weather.data.db.CPOrmConfig" />
+        <meta-data
+            android:name="AUTHORITY"
+            android:value="com.github.raylemon.weather" />
+
+        <provider
+            android:name="com.github.raylemon.weather.provider.ForecastContentProvider"
+            android:authorities="com.github.raylemon.weather"
+            android:exported="false"
+            android:process=":provider" />
+
         <activity
             android:name=".ui.MainAktivity"
             android:label="@string/app_name"
