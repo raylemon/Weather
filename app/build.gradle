@@ -39,6 +39,5 @@ dependencies {
     compile "org.jetbrains.anko:anko-common:$anko_version"
     compile "com.google.code.gson:gson:$gson_version"
     compile "com.squareup.picasso:picasso:$picasso_version"
-
-    compile 'za.co.cporm:CPOrm:2.99'
+    compile "com.github.satyan:sugar:$sugar_version"
 }

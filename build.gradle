@@ -7,6 +7,7 @@ buildscript {
     ext.anko_version = '0.8.3'
     ext.picasso_version = '2.5.2'
     ext.gson_version = '2.6.2'
+    ext.sugar_version = '1.5'
 
     repositories {
         jcenter()

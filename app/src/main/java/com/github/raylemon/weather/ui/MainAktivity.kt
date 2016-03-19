@@ -7,7 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.github.raylemon.weather.R
-import com.github.raylemon.weather.data.JsonServer
+import com.github.raylemon.weather.data.ForecastProvider
 import com.github.raylemon.weather.ui.adapter.ForecastAdapter
 import com.github.raylemon.weather.ui.toolbar.ToolbarManager
 import kotlinx.android.synthetic.main.forecast_list.*
@@ -38,7 +38,7 @@ class MainAktivity : AppCompatActivity(), ToolbarManager {
     override fun onResume() {
         super.onResume()
         async() {
-            val items = JsonServer().getForecast(cnt, city)
+            val items = ForecastProvider.getForecast(cnt, city)
             uiThread {
                 vForecastList.adapter = ForecastAdapter(items) {
                     val twoPane = resources.getBoolean(R.bool.twoPane)
