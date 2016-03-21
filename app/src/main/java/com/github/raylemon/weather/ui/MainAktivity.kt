@@ -37,7 +37,14 @@ class MainAktivity : AppCompatActivity() {
             val items = JsonServer().getForecast(cnt, city)
             uiThread {
                 vForecastList.adapter = ForecastAdapter(items) { forecast ->
-                    startActivity<DetailAktivity>(DetailFragment.KEY to forecast, DetailFragment.CITY to city)
+                    if (!resources.getBoolean(R.bool.twoPane)) startActivity<DetailAktivity>(DetailFragment.KEY to forecast, DetailFragment.CITY to city)
+                        else
+                        fragmentManager
+                                .beginTransaction()
+                                .replace(R.id.container, DetailFragment().apply {
+                                    arguments = Bundle().apply { putParcelable(DetailFragment.KEY, forecast) }
+                                })
+                                .commit()
                 }
             }
         }
