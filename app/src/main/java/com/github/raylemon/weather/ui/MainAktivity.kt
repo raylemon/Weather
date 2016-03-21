@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.startActivity
 
 /**
  * Created by big04 on 06-03-16.
@@ -35,8 +36,8 @@ class MainAktivity : AppCompatActivity() {
         async() {
             val items = JsonServer().getForecast(cnt, city)
             uiThread {
-                vForecastList.adapter = ForecastAdapter(items) {
-                    toast(it.dt.toDate())
+                vForecastList.adapter = ForecastAdapter(items) { forecast ->
+                    startActivity<DetailAktivity>(DetailFragment.KEY to forecast, DetailFragment.CITY to city)
                 }
             }
         }

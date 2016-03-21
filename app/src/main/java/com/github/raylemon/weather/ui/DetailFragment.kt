@@ -18,8 +18,14 @@ class DetailFragment : Fragment() {
     private lateinit var forecast : Forecast
         private set
 
+    companion object {
+        const val KEY = "forecast"
+        const val CITY = "city"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        if (arguments != null && arguments.containsKey(KEY)) forecast = arguments.getParcelable(KEY)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
